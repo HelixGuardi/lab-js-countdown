@@ -6,6 +6,8 @@ const startCountBtnNode = document.querySelector('#start-btn');
 // console.log(startCountBtn) // <button id="start-btn">Start Countdown</button>
 const displayedTimeNode = document.querySelector('#time');
 // console.log(displayedTimeNode) // <div id="time">10</div>
+const toastCardNode = document.querySelector('#toast');
+// console.log(toastCardNode) // <div id="toast" class="toast">...<div>
 
 // ITERATION 1: Add event listener to the start button
 
@@ -41,7 +43,12 @@ function startCountdown() {
 function showToast(message) {
   console.log("showToast called!");
 
-  // Your code goes here ...
+  toastCardNode.classList.toggle('show');
+
+  setTimeout(() => {
+    toastCardNode.classList.remove('show')
+  }, 3000)
+
 
 
 
