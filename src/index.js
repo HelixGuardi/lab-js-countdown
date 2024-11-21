@@ -2,15 +2,15 @@ const DURATION = 10; // 10 seconds
 let remainingTime = DURATION; // Countdown starting from 10
 let timer = null; // Variable to store the interval
 
-
+const startCountBtnNode = document.querySelector('#start-btn');
+// console.log(startCountBtn) // <button id="start-btn">Start Countdown</button>
+const displayedTimeNode = document.querySelector('#time');
+// console.log(displayedTimeNode) // <div id="time">10</div>
 
 // ITERATION 1: Add event listener to the start button
 
 // Your code goes here ...
-const startCountBtn = document.querySelector('#start-btn');
-// console.log(startCountBtn) // <button id="start-btn">Start Countdown</button>
-
-startCountBtn.addEventListener('click', () => {
+startCountBtnNode.addEventListener('click', () => {
   startCountdown();
 });
 
@@ -20,8 +20,18 @@ startCountBtn.addEventListener('click', () => {
 function startCountdown() {
   console.log("startCountdown called!");
 
+  let intervalId = setInterval(() => {
+    remainingTime--;
+    
+    displayedTimeNode.innerText = remainingTime;
 
-  // Your code goes here ...
+    if(remainingTime === 0) {
+      clearInterval(intervalId) // detiene el intervalo
+      showToast();
+    }
+
+  }, 1000);
+
 }
 
 
